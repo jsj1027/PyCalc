@@ -12,14 +12,19 @@ def main(argv):
     w = list(w)
     var = ""
     operator = ""
-    total = {}
-    for temp in w:
-        if temp.isdigit():
-            var += str(temp)
+    counter=len(w)
+    print(counter)
+    total = []
+    for i in range(0, counter) :
+        if w[i].isdigit() and i != counter-1 :
+            var += w[i]
+        elif w[i] ==w[counter-1]:
+            var += w[i]
+            total.append(var)
         else:
             total.append(var)
-    for temp in total:
-        print(temp)
+            var = ""
+    print (total)
     return None
 
 def operation_check(op):
