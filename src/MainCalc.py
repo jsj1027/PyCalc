@@ -18,7 +18,9 @@ def main(argv):
     for i in range(0, counter) :
         if w[i].isdigit() and i != counter-1 :
             var += w[i]
-        elif w[i] ==w[counter-1]:
+        elif not w[i].isdigit() and i != counter-1:
+            total.append(operation_check(w[i]))
+        elif w[i].isdigit() and w[i] == w[counter-1]:
             var += w[i]
             total.append(var)
         else:
@@ -28,11 +30,10 @@ def main(argv):
     return None
 
 def operation_check(op):
-    if op == "+":
-        return True
+    if op in ["+","-","*","/"] :
+        return op
     else :
-        return False
-
+        exit("Error")
 
 def addition(x,y):
     z = x + y
